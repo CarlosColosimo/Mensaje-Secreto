@@ -5,12 +5,14 @@ body {
     background-color: #f3f3f3;
 }
 
-.container {
-    max-width: 600px;
+#msj {
+    width: 80%;
+    height: 150px;
     margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
 }
 
 h1 {

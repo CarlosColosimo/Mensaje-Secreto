@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+
     <title>Mensajes Secretos</title>
 </head>
-<body>
-    <h1>Decodificador de Mensajes Secretos</h1>
 
-    <input type="file" id="archivoCodificado" accept=".txt">
-    <button onclick="Mensaje()">Decodificar</button>
+<body>
+    <h1>Codificar mensajes</h1>
+
+    <textarea id="msj" placeholder="Ingresa el mensaje codificado aquí"></textarea>
+    <button onclick="decodificarMensaje()">Decodificar</button>
     <div id="resultado"></div>
 
     <script src="js/funciones.js"></script>

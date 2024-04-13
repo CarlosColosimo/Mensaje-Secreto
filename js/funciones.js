@@ -1,39 +1,26 @@
-function Mensaje() {
-    const archivoInput = document.getElementById('archivoCodificado');
-    const archivo = archivoInput.files[0];
 
-    if (!archivo) {
-        alert('No hay archivo');
-        return;
+function decodificarMensaje() {
+    const Codificador = document.getElementById('msj').value.trim();
+    const Decodificadas = [];
+
+    let parteActual = '';
+
+    for (let simbolo of Codificador) {
+        if (simbolo === '(') {
+            Decodificadas.push(parteActual);
+            parteActual = '';
+        } else if (simbolo === ')') {
+            Decodificadas.push(parteActual.split('').reverse().join(''));
+            parteActual = '';
+        } else {
+            parteActual += simbolo;
+        }
     }
 
-    const lector = new FileReader();
+    if (parteActual) {
+        Decodificadas.push(parteActual);
+    }
 
-    lector.onload = function(evento) {
-        const mensajeCodificado = evento.target.result.trim();
-        const partesDecodificadas = [];
-
-        let parteActual = '';
-
-        for (let caracter of mensajeCodificado) {
-            if (caracter === '(') {
-                partesDecodificadas.push(parteActual);
-                parteActual = '';
-            } else if (caracter === ')') {
-                partesDecodificadas.push(parteActual.split('').reverse().join(''));
-                parteActual = '';
-            } else {
-                parteActual += caracter;
-            }
-        }
-
-        if (parteActual) {
-            partesDecodificadas.push(parteActual);
-        }
-
-        const mensajeDecodificado = partesDecodificadas.join(' ');
-        document.getElementById('resultado').innerText = mensajeDecodificado;
-    };
-
-    lector.readAsText(archivo);
+    const Decodificador = Decodificadas.join(' ');
+    document.getElementById('resultado').innerText = Decodificador;
 }
